@@ -305,17 +305,17 @@
 	                    style: this.props.style }, this.state.text || this.props.placeholder);
 	            } else {
 	                var _Element2 = this.props.element || this.props.editingElement;
-	                return _react2.default.createElement(_Element2, {
+	                return _react2.default.createElement('div', null, _react2.default.createElement(_Element2, {
 	                    onClick: this.clickWhenEditing,
-	                    onKeyDown: this.keyDown,
-	                    onBlur: this.finishEditing,
-	                    className: this.props.activeClassName,
+	                    onKeyDown: this.keyDown
+	                    /*onBlur={this.finishEditing}*/
+	                    , className: this.props.activeClassName,
 	                    placeholder: this.props.placeholder,
 	                    defaultValue: this.state.text,
 	                    onReturn: this.finishEditing,
 	                    onChange: this.textChanged,
 	                    style: this.props.style,
-	                    ref: 'input' });
+	                    ref: 'input' }), _react2.default.createElement('button', { className: 'save-inline-edition', onClick: this.finishEditing }, 'Guardar'), _react2.default.createElement('button', { className: 'cancel-inline-edition', onClick: this.cancelEditing }, 'Cancelar'));
 	            }
 	        }
 	    }]);

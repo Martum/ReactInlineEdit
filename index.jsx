@@ -143,17 +143,23 @@ export default class InlineEdit extends React.Component {
             </Element>;
         } else {
             const Element = this.props.element || this.props.editingElement;
-            return <Element
-                onClick={this.clickWhenEditing}
-                onKeyDown={this.keyDown}
-                onBlur={this.finishEditing}
-                className={this.props.activeClassName}
-                placeholder={this.props.placeholder}
-                defaultValue={this.state.text}
-                onReturn={this.finishEditing}
-                onChange={this.textChanged}
-                style={this.props.style}
-                ref="input" />;
+            return (
+                <div>
+                    <Element
+                        onClick={this.clickWhenEditing}
+                        onKeyDown={this.keyDown}
+                        /*onBlur={this.finishEditing}*/
+                        className={this.props.activeClassName}
+                        placeholder={this.props.placeholder}
+                        defaultValue={this.state.text}
+                        onReturn={this.finishEditing}
+                        onChange={this.textChanged}
+                        style={this.props.style}
+                        ref="input" />
+                    <button className="save-inline-edition" onClick={this.finishEditing}>Guardar</button>
+                    <button className="cancel-inline-edition" onClick={this.cancelEditing}>Cancelar</button>
+                </div>
+            );
         }
     }
 }
